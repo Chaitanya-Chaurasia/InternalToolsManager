@@ -6,7 +6,7 @@ const UserInformation = () => {
 
   return isAuthenticated ? (
     <>
-      <div className="user-info-container">
+      <div className="user-info-container bg-transparent">
         <div className="user-info-column">
           {user?.picture && (
             <img
@@ -19,7 +19,6 @@ const UserInformation = () => {
           <h2>{user?.name}</h2>
         </div>
         <div className="user-info-column">
-          <h3>User Details</h3>
           <ul className="user-details-list">
             {Object.keys(user).map((objKey, i) => (
               <li key={i}>

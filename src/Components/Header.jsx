@@ -9,7 +9,11 @@ const Header = () => {
   const { isAuthenticated } = useAuth0();
 
   const navbarStyle = {
-    background: "#dbd4b4",
+    background: "none", // Adjust the alpha value for transparency
+  };
+
+  const buttonStyle = {
+    border: "2px solid black", // Set the button border to black
   };
 
   return (
@@ -31,25 +35,16 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2  mb-lg-0"></ul>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
             <div className="d-flex align-items-center gap-2">
-              <form className="me-2" role="search">
-                <input
-                  className="form-control"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-              </form>
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
               {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-              <button className="btn btn-outline-success " type="submit">
-                Home
-              </button>
-              <button className="btn btn-outline-success" type="submit">
+
+              <button
+                className="btn btn-outline-dark"
+                style={buttonStyle}
+                type="submit"
+              >
                 Tools
               </button>
             </div>

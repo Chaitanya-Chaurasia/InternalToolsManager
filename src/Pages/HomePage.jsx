@@ -17,7 +17,7 @@ const HomePage = () => {
           <Container className="mt-5">
             <Row className="justify-content-center">
               {/* User Information */}
-              <Col md={4} className="mb-4">
+              <Col md={4} className="mb-4 border-r-amber-400">
                 <div className="bg-light p-3 text-center">
                   <h3>User Information</h3>
                   <UserInformation />
