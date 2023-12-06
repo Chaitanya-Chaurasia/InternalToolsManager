@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Header from "./components/Header.jsx";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./Pages/HomePage";
 import LandingPage from "./Pages/LandingPage";
