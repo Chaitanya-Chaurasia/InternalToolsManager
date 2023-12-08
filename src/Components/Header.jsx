@@ -2,14 +2,7 @@ import React from "react";
 import LogoutButton from "./LogoutButton";
 import LoginButton from "./LoginButton";
 import { useAuth0 } from "@auth0/auth0-react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Avatar,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, IconButton, Avatar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../assets/logo.png";
 

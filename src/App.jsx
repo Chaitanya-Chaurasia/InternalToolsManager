@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "./Components/Header";
-import Footer from "./components/Footer";
+import Footer from "./Components/Footer";
 import HomePage from "./Pages/HomePage";
 import LandingPage from "./Pages/LandingPage";
 import backgroundImage from "../src/assets/bg.jpg"; // Update the path

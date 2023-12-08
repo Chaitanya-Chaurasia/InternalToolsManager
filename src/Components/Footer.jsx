@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
 
-const FooterNew = () => {
+const Footer = () => {
   const paperStyle = {
     background: "#fff",
     color: "#000",
@@ -26,4 +26,4 @@ const FooterNew = () => {
   );
 };
 
-export default FooterNew;
+export default Footer;
