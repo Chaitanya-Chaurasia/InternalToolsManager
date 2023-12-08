@@ -1,30 +1,47 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Avatar, Box, Paper, Typography } from "@mui/material";
 
 const UserInformation = () => {
   const { user, isAuthenticated } = useAuth0();
 
   return isAuthenticated ? (
-    <>
-      <div className="user-info-container bg-transparent">
-        <div className="user-info-column">
-          {user?.picture && (
-            <img
-              src={user.picture}
-              alt={user?.name}
-              className="user-avatar"
-              style={{ borderRadius: "50%" }} // Add this line for rounded corners
-            />
-          )}
-          <h2>{user?.name}</h2>
-        </div>
-        <div className="user-info-column">
-          <ul className="user-details-list">
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      p={2}
+    >
+      <Paper
+        elevation={3}
+        sx={{
+          p: 2,
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "rgba(0, 0, 0, 0.1)", // Gray background with 70% opacity
+          fontFamily: "Garamond, serif",
+        }}
+      >
+        <Avatar
+          src={user?.picture}
+          alt={user?.name}
+          style={{ width: 80, height: 80, marginRight: 2 }}
+        />
+        <div>
+          <Typography variant="h6">{user?.name}</Typography>
+          <ul style={{ listStyleType: "none", padding: 0 }}>
             {Object.keys(user).map((objKey, i) => (
               <li key={i}>
                 <strong>{objKey}:</strong>{" "}
-                {objKey == "picture" ? (
-                  <a href={user.picture}>Link </a>
+                {objKey === "picture" ? (
+                  <a
+                    href={user.picture}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Link
+                  </a>
                 ) : (
                   user[objKey]
                 )}
@@ -32,12 +49,10 @@ const UserInformation = () => {
             ))}
           </ul>
         </div>
-      </div>
-    </>
+      </Paper>
+    </Box>
   ) : (
-    <>
-      <p>Sign in to see User Information!</p>
-    </>
+    <Typography variant="body1">Sign in to see User Information!</Typography>
   );
 };
 

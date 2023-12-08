@@ -2,14 +2,22 @@ import React from "react";
 import LogoutButton from "./LogoutButton";
 import LoginButton from "./LoginButton";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Image } from "react-bootstrap";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Avatar,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../assets/logo.png";
 
 const Header = () => {
-  const { isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   const navbarStyle = {
-    background: "none", // Adjust the alpha value for transparency
+    background: "white", // Adjust the alpha value for transparency
   };
 
   const buttonStyle = {
@@ -18,39 +26,35 @@ const Header = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark" style={navbarStyle}>
-        <div className="container-fluid">
-          <a className="navbar-brand text-dark" href="#">
-            <Image src={logo} style={{ width: "120px", height: "30px" }} />
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+      <AppBar position="static" style={navbarStyle}>
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
           >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ width: "120px", height: "30px" }}
+            />
+          </Typography>
 
-            <div className="d-flex align-items-center gap-2">
-              {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
 
-              <button
-                className="btn btn-outline-dark"
-                style={buttonStyle}
-                type="submit"
-              >
-                Tools
-              </button>
-            </div>
+            <Avatar
+              sx={{ width: 32, height: 32 }}
+              src={isAuthenticated ? user?.picture && user.picture : <></>}
+            />
           </div>
-        </div>
-      </nav>
+        </Toolbar>
+      </AppBar>
     </>
   );
 };

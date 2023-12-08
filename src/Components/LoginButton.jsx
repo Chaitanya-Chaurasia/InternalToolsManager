@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { Button } from "@mui/material";
 
 const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -7,14 +8,13 @@ const LoginButton = () => {
   };
   return (
     !isAuthenticated && (
-      <button
-        className="btn btn-outline-light"
-        style={buttonStyle}
-        type="submit"
+      <Button
+        variant="contained"
+        color="success"
         onClick={() => loginWithRedirect()}
       >
         Sign In
-      </button>
+      </Button>
     )
   );
 };

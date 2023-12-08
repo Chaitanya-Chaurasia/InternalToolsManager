@@ -1,22 +1,28 @@
 import React from "react";
+import { Paper, Typography } from "@mui/material";
 
 const FooterNew = () => {
-  const footerStyle = {
-    background: "none",
-    color: "#fff",
+  const paperStyle = {
+    background: "#fff",
+    color: "#000",
     fontSize: "10px",
     borderRadius: "50px", // Adjust the border radius as needed
-    width: "550px",
+    width: "450px",
+    height: "26px", // Set a fixed height for vertical centering
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     margin: "20px auto", // Center the footer horizontally
     border: "2px solid #fff", // Optional padding for better appearance
   };
 
   return (
-    <footer style={footerStyle} className="text-center">
-      <div className="mt-3">
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
-      </div>
-    </footer>
+    <Paper elevation={5} style={paperStyle}>
+      <Typography variant="body6">
+        &copy; 2023 Your Company. All rights reserved.
+      </Typography>
+    </Paper>
   );
 };
 
