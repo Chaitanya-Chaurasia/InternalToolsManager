@@ -1,0 +1,41 @@
+div {
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Raleway, sans-serif;
+}
+
+h1 {
+  position: absolute;
+  top: 20%;
+  font-size: 80px;
+
+  color: #fff;
+  /* text-shadow: 3px 3px 20px #9f12a3, -20px 10px 30px #45adc7,
+    3px 3px 20px #2b8fa3; */
+  text-shadow: 10px 10px 25px rgb(19, 171, 49), -20px 20px 35px rgb(83, 27, 162),
+    -10px -10px 25px rgb(136, 183, 26), 10px -10px 25px rgb(134, 16, 71);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0; /* make things invisible upon start */
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 1.4s;
+}

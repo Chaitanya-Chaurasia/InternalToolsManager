@@ -1,0 +1,8 @@
+h3 {
+  color: #fff;
+  font-size: 40px;
+  /* text-shadow: 3px 3px 20px #9f12a3, -20px 10px 30px #45adc7,
+    3px 3px 20px #2b8fa3; */
+  text-shadow: 10px 10px 25px rgb(19, 171, 49), -20px 20px 35px rgb(83, 27, 162),
+    -10px -10px 25px rgb(136, 183, 26), 10px -10px 25px rgb(134, 16, 71);
+}

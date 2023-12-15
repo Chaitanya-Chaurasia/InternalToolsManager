@@ -4,25 +4,47 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import HomePage from "./Pages/HomePage";
 import LandingPage from "./Pages/LandingPage";
-import backgroundImage from "../src/assets/bg.jpg"; // Update the path
 import { useAuth0 } from "@auth0/auth0-react";
+
+import bg from "./assets/bg.jpg";
+import LoggedInHeader from "./Components/LoggedInHeader";
 
 function App() {
   const { isAuthenticated } = useAuth0();
   const containerStyle = {
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundColor: "#000",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    backgroundImage: `url(${bg})`,
   };
 
   return (
     <div className="d-flex flex-column min-vh-100" style={containerStyle}>
-      <Header />
-      <Container className="flex-grow-1">
-        <Row>
-          <Col>{!isAuthenticated ? <LandingPage /> : <HomePage />}</Col>
-        </Row>
-      </Container>
+      {!isAuthenticated ? (
+        <>
+          {" "}
+          <Header />{" "}
+          <Container className="flex-grow-1">
+            <Row>
+              <Col>
+                <LandingPage />
+              </Col>
+            </Row>
+          </Container>
+        </>
+      ) : (
+        <>
+          <LoggedInHeader />
+          <Container className="flex-grow-1">
+            <Row>
+              <Col>
+                {" "}
+                <HomePage />
+              </Col>
+            </Row>
+          </Container>
+        </>
+      )}
       <Footer />
     </div>
   );

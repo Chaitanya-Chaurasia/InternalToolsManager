@@ -1,0 +1,24 @@
+/* Add this to your CSS */
+.bg-transparent {
+  background-color: transparent !important; /* Override Bootstrap background */
+}
+
+/* Fix overlapping */
+.mb-4 {
+  margin-bottom: 1.5rem; /* Adjust as needed */
+}
+
+/* Add border radius to the scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cccccc; /* Adjust color as needed */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}

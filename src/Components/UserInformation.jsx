@@ -19,15 +19,10 @@ const UserInformation = () => {
           p: 2,
           display: "flex",
           alignItems: "center",
-          backgroundColor: "rgba(0, 0, 0, 0.1)", // Gray background with 70% opacity
-          fontFamily: "Garamond, serif",
+          backgroundColor: "rgba(55, 55, 55, 0.2)", // Gray background with 70% opacity
+          fontSize: "14px",
         }}
       >
-        <Avatar
-          src={user?.picture}
-          alt={user?.name}
-          style={{ width: 80, height: 80, marginRight: 2 }}
-        />
         <div>
           <Typography variant="h6">{user?.name}</Typography>
           <ul style={{ listStyleType: "none", padding: 0 }}>

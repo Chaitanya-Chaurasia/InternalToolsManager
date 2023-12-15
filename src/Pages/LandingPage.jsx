@@ -1,34 +1,25 @@
 import React from "react";
-import { Button, Container, Typography, styled } from "@mui/material";
+import { Container, Typography, styled } from "@mui/material";
+import "../Styles/LandingPage.css";
 
 const RootContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  height: "100vh",
+  height: "80vh",
 });
 
-const FloatingText = styled(Typography)({
-  position: "absolute",
-  top: "20%",
-  fontSize: "2rem",
-  fontWeight: "bold",
-});
-
-const SignInButton = styled(Button)({
-  marginTop: (theme) => theme.spacing(4),
-  padding: (theme) => theme.spacing(2),
-  fontSize: "1.2rem",
-});
+const FloatingText = styled(Typography)({});
 
 const LandingPage = () => {
   return (
     <RootContainer>
-      <FloatingText variant="h2">Internal Tool Manager</FloatingText>
-      <SignInButton variant="contained" color="primary">
-        Sign In
-      </SignInButton>
+      <FloatingText variant="h2">
+        <section className="banner">
+          <h1 className="fade-in">Internal Tools Manager</h1>
+        </section>
+      </FloatingText>
     </RootContainer>
   );
 };
