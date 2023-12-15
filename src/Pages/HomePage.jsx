@@ -21,13 +21,13 @@ const HomePage = () => {
         <>
           <Container className="mt-6">
             {/* Welcome Box */}
-            <Row className="justify-content-center p-3 my-4">
+            <Row className="justify-content-center p-2 my-4">
               <Col md={8} className="text-center">
                 <WelcomeBox />
               </Col>
             </Row>
 
-            <Row>
+            <Row className="justify-content-center p-2 my-4">
               <Col md={6}>
                 <div className="bg-light p-3 text-center bg-transparent">
                   <h4>Profile</h4>

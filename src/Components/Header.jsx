@@ -1,15 +1,16 @@
 import React from "react";
-import LogoutButton from "./LogoutButton";
 import LoginButton from "./LoginButton";
 import AboutUsButton from "./AboutUsButton";
+import CookieDeclined from "./CookieDeclined";
 import AddToolsButton from "./AddToolsButton";
 import HomeButton from "./HomeButton";
-import { useAuth0 } from "@auth0/auth0-react";
 import { AppBar, Toolbar, Avatar, Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import { MyContext } from "../Context/Context";
+import { useContext } from "react";
 
 const Header = () => {
-  const { user, isAuthenticated } = useAuth0();
+  const { response } = useContext(MyContext);
 
   const navbarStyle = {
     background: "none",
@@ -35,18 +36,8 @@ const Header = () => {
             </Box>
           </Box>
           <Box>
-            {isAuthenticated ? (
-              <>
-                {" "}
-                <Avatar
-                  sx={{ width: 32, height: 32 }}
-                  src={isAuthenticated ? user?.picture && user.picture : <></>}
-                />{" "}
-                <LogoutButton />{" "}
-              </>
-            ) : (
-              <LoginButton />
-            )}
+            {response === "accepted" ? <LoginButton /> : <></>}
+            {response === "declined" ? <CookieDeclined /> : <></>}
           </Box>
         </Toolbar>
       </AppBar>

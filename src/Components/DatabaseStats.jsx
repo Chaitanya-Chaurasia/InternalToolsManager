@@ -2,6 +2,8 @@ import React from "react";
 import { Grid, Paper, LinearProgress } from "@mui/material";
 import CountUp from "react-countup";
 import { useAuth0 } from "@auth0/auth0-react";
+import AddToDatabaseButton from "./AddToDatabaseButton";
+import MigrateFromCSVButton from "./MigrateFromCSVButton";
 
 const DatabaseStats = () => {
   const entries = 3;
@@ -10,7 +12,7 @@ const DatabaseStats = () => {
   const { user } = useAuth0();
 
   return (
-    <div className="p-3">
+    <div className="p-5">
       {/* Row 1: One rectangle box */}
       <Grid container>
         <Grid item xs={12}>
@@ -44,34 +46,21 @@ const DatabaseStats = () => {
           </Paper>
         </Grid>
       </Grid>
-
-      {/* Row 2: Two equal width boxes */}
-      <Grid container spacing={1} className="p-3">
-        {/* First box */}
-        <Grid item xs={8}>
+      <h4></h4>
+      <Grid container>
+        <Grid item xs={12} className="p-6">
           <Paper
             style={{
-              height: "100px",
+              height: "70px",
               backgroundColor: "rgba(55, 55, 55, 0.2)",
-              color: "white",
-              fontSize: "20px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            Last Accessed : {user?.updated_at}
-          </Paper>
-        </Grid>
-
-        {/* Second box */}
-        <Grid item xs={4}>
-          <Paper
-            style={{
-              height: "100px",
-              backgroundColor: "rgba(55, 55, 55, 0.2)",
-              color: "white",
-              fontSize: "15px",
-            }}
-          >
-            Some more stats :)
+            <AddToDatabaseButton />
+            <MigrateFromCSVButton />
           </Paper>
         </Grid>
       </Grid>
