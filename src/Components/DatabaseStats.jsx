@@ -4,8 +4,8 @@ import CountUp from "react-countup";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const DatabaseStats = () => {
-  const entries = 10;
-  const capacity = 1000;
+  const entries = 3;
+  const capacity = 100;
 
   const { user } = useAuth0();
 

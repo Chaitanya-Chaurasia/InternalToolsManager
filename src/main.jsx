@@ -5,7 +5,6 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoggedInHeader from "./Components/LoggedInHeader";
 import ViewPage from "./Pages/ViewPage"; // Replace with your actual component for the view page
-import UploadCSVPage from "./Pages/UploadCSVPage"; // Replace with your actual component for the upload CSV page
 
 const domain = import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID;
@@ -30,9 +29,6 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/view" element={<ViewPage />}>
             {/* View page */}
-          </Route>
-          <Route path="/uploadCSV" element={<UploadCSVPage />}>
-            {/* Upload CSV page */}
           </Route>
         </Routes>
       </Router>

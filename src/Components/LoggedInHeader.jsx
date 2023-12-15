@@ -5,7 +5,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { AppBar, Toolbar, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import SearchDatabaseButton from "./SearchDatabaseButton";
-import UploadCSVButton from "./UploadCSVButton";
 import HomeButton from "./HomeButton";
 const LoggedInHeader = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -27,9 +26,6 @@ const LoggedInHeader = () => {
             </Link>
             <Link to="/view">
               <SearchDatabaseButton />
-            </Link>
-            <Link to="/uploadCSV">
-              <UploadCSVButton />
             </Link>
             {isAuthenticated ? (
               <>
