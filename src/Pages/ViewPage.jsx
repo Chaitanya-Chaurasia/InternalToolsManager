@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../assets/bg.jpg";
+import bg from "../assets/bg.png";
 import LoggedInHeader from "../Components/LoggedInHeader";
 import {
   Table,

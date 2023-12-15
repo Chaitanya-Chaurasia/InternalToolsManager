@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Typography, styled } from "@mui/material";
+import { Container, Typography, styled, Avatar } from "@mui/material";
 import "../Styles/LandingPage.css";
+import logo from "../assets/logo.png";
 
 const RootContainer = styled(Container)({
   display: "flex",
@@ -19,6 +20,11 @@ const LandingPage = () => {
         <section className="banner">
           <h1 className="fade-in">Internal Tools Manager</h1>
         </section>
+        <Avatar
+          src={logo}
+          sx={{ width: 200, height: 200 }}
+          className="fade-in"
+        />
       </FloatingText>
     </RootContainer>
   );

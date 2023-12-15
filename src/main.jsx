@@ -3,8 +3,9 @@ import App from "./App.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoggedInHeader from "./Components/LoggedInHeader";
 import ViewPage from "./Pages/ViewPage"; // Replace with your actual component for the view page
+import AboutUs from "./Pages/AboutUs.jsx";
+import HowToPage from "./Pages/HowToPage.jsx";
 
 const domain = import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID;
@@ -27,9 +28,10 @@ root.render(
       <Router>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/view" element={<ViewPage />}>
-            {/* View page */}
-          </Route>
+          <Route path="/view" element={<ViewPage />} />
+          {/* View page */}
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/howto" element={<HowToPage />} />
         </Routes>
       </Router>
     </Auth0Provider>

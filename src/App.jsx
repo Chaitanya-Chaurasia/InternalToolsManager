@@ -7,11 +7,11 @@ import LandingPage from "./Pages/LandingPage";
 import { useAuth0 } from "@auth0/auth0-react";
 import Spinner from "./Components/Spinner";
 
-import bg from "./assets/bg.jpg";
+import bg from "./assets/bg.png";
 import LoggedInHeader from "./Components/LoggedInHeader";
 
 function App() {
-  const { isAuthenticated, error, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
   const containerStyle = {
     backgroundColor: "#000",
     backgroundSize: "cover",
@@ -60,7 +60,6 @@ function App() {
           )}
         </>
       )}
-      <Footer />
     </div>
   );
 }

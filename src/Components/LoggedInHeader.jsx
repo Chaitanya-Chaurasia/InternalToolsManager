@@ -6,6 +6,8 @@ import { AppBar, Toolbar, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import SearchDatabaseButton from "./SearchDatabaseButton";
 import HomeButton from "./HomeButton";
+import logo from "../assets/logo.png";
+
 const LoggedInHeader = () => {
   const { user, isAuthenticated } = useAuth0();
 
@@ -17,7 +19,23 @@ const LoggedInHeader = () => {
   return (
     <>
       <AppBar position="static" style={navbarStyle}>
-        <Toolbar style={{ justifyContent: "flex-end" }}>
+        <Toolbar>
+          {/* Logo (Avatar) on the left */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginRight: "auto",
+            }}
+          >
+            <Avatar
+              src={logo}
+              alt="Logo"
+              sx={{ width: 60, height: 60, marginRight: 2 }}
+            />
+          </div>
+
+          {/* Buttons on the right */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             {/* Wrap the buttons with Link components */}
             <Link to="/">

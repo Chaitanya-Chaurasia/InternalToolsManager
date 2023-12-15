@@ -19,7 +19,7 @@ const HomePage = () => {
       )}
       {!error && !isLoading && (
         <>
-          <Container className="mt-5">
+          <Container className="mt-6">
             {/* Welcome Box */}
             <Row className="justify-content-center p-3 my-4">
               <Col md={8} className="text-center">

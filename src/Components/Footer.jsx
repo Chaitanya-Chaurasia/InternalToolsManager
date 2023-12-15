@@ -18,7 +18,7 @@ const Footer = () => {
   };
 
   return (
-    <Paper elevation={5} style={paperStyle}>
+    <Paper style={paperStyle}>
       <Typography variant="body6">
         &copy; 2023 Your Company. All rights reserved.
       </Typography>
