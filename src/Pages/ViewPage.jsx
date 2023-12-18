@@ -102,7 +102,7 @@ const ViewPage = () => {
               backgroundColor: "rgb(55,55,55,0.2)",
             }}
           >
-            <Table sx={{}}>
+            <Table className="fade-in">
               <TableHead>
                 <TableRow>
                   <TableCell sx={tableHeadStyle}>Given Name</TableCell>

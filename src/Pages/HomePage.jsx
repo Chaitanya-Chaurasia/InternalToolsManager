@@ -1,13 +1,19 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import WelcomeBox from "../Components/WelcomeBox"; // Replace with the actual path to your WelcomeBox component
-import UserInformation from "../Components/UserInformation"; // Replace with the actual path to your UserInformation component
-import "../Styles/HomePage.css";
+import React, { useState } from "react";
+import { Container, Row, Col, Button, Modal } from "react-bootstrap";
+import WelcomeBox from "../Components/WelcomeBox";
+import UserInformation from "../Components/UserInformation";
 import DatabaseStats from "../Components/DatabaseStats";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import { MyContext } from "../Context/Context.js";
+import { useContext } from "react";
+import CSVUploadModal from "../Components/CSVUploadModal.jsx";
 const HomePage = () => {
   const { isLoading, error } = useAuth0();
+  const { showModal, setShowModal } = useContext(MyContext);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -42,6 +48,8 @@ const HomePage = () => {
                 </div>
               </Col>
             </Row>
+
+            <CSVUploadModal open={showModal} onClose={handleCloseModal} />
           </Container>
         </>
       )}
@@ -50,3 +58,19 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+{
+  /* <Modal show={showModal} onHide={handleCloseModal}>
+  <Modal.Header closeButton>
+    <Modal.Title>Migrate Data</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <p>Modal content goes here.</p>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={handleCloseModal}>
+      Close
+    </Button>
+  </Modal.Footer>
+</Modal>; */
+}

@@ -15,6 +15,10 @@ function App() {
   const { isAuthenticated, isLoading } = useAuth0();
   const [open, setOpen] = useState(true);
   const [response, setResponse] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const containerStyle = {
     backgroundColor: "#000",
     backgroundSize: "cover",
@@ -29,6 +33,12 @@ function App() {
         setOpen,
         response,
         setResponse,
+        showModal,
+        setShowModal,
+        selectedFile,
+        setSelectedFile,
+        loading,
+        setLoading,
       }}
     >
       <div className="d-flex flex-column min-vh-100" style={containerStyle}>

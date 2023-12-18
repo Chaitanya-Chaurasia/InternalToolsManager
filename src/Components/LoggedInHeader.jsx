@@ -50,7 +50,7 @@ const LoggedInHeader = () => {
                 <LogoutButton />{" "}
                 <Avatar
                   sx={{ width: 32, height: 32 }}
-                  src={isAuthenticated ? user?.picture && user.picture : <></>}
+                  src={isAuthenticated ? user && user.picture : <></>}
                 />{" "}
               </>
             ) : (
