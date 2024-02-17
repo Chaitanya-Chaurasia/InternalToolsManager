@@ -1,8 +1,7 @@
 import React from "react";
-import "../Styles/Button.css";
 import { Button } from "@mui/material";
-
-const HomeButton = () => {
+import "../Styles/Button.css";
+const DemoButton = () => {
   return (
     <div>
       <Button
@@ -12,10 +11,10 @@ const HomeButton = () => {
           borderRadius: "10px",
         }}
       >
-        <div>Home</div>
+        <div>Try Demo</div>
       </Button>
     </div>
   );
 };
 
-export default HomeButton;
+export default DemoButton;

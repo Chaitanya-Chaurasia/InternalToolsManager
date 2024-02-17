@@ -7,16 +7,36 @@ div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 80px;
   font-family: Raleway, sans-serif;
+  margin-top: 50px;
 }
 
-h1 {
-  position: absolute;
-  top: 20%;
-  font-size: 80px;
+/* For WebKit-based browsers */
+::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
 
+/* For Firefox */
+/* Hide scrollbar for the entire document */
+html {
+  scrollbar-width: none;
+}
+
+/* Or hide scrollbar for specific elements */
+/* Replace 'element' with your target element */
+element {
+  scrollbar-width: none;
+}
+h1 {
+  font-size: 100px;
+  color: #fff;
+  /* text-shadow: 3px 3px 20px #9f12a3, -20px 10px 30px #45adc7,
+    3px 3px 20px #2b86a3; */
+  text-shadow: 10px 10px 25px rgb(19, 171, 49), -20px 20px 35px rgb(83, 27, 162),
+    -10px -10px 25px rgb(136, 183, 26), 10px -10px 25px rgb(134, 16, 71);
+}
+
+h6 {
   color: #fff;
   /* text-shadow: 3px 3px 20px #9f12a3, -20px 10px 30px #45adc7,
     3px 3px 20px #2b8fa3; */
