@@ -61,6 +61,7 @@ const LandingPage = () => {
               borderRadius: "15px",
               marginTop: 50,
             }}
+            className="fade-in"
           >
             {" "}
             <div>
@@ -97,6 +98,7 @@ const LandingPage = () => {
             marginTop: 50,
             background: "rgba(255, 255, 255, 0.1)",
           }}
+          className="fade-in"
         >
           <img src={fetch} alt="Fetch" style={imageStyle} />
           <img src={aws} alt="AWS" style={imageStyle} />

@@ -41,7 +41,7 @@ const TakePicture = () => {
       .post(URL, data)
       .then((response) => {
         setLoading(50);
-        console.log(JSON.stringify(response.data.data[0][0].identity));
+        console.log(JSON.stringify(response.data));
         console.log(getName(JSON.stringify(response.data.data[0][0].identity)));
 
         setLoading(100);
