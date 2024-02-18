@@ -3,13 +3,52 @@ import { Button, Container, Grid, Paper, Typography } from "@mui/material";
 import axios from "axios";
 
 const URL = import.meta.env.VITE_FACE_RECOGNITION_URL;
-
+const linkedinURL = import.meta.env.VITE_LINKEDIN_URL;
+const verifyURL = import.meta.env.VITE_FACE_VERIFY_URL;
 const TakePicture = () => {
   const [capturedImage, setCapturedImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
+  function imageToBase64(url) {
+    // Fetch the image
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Read the image blob as Data URL
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = function () {
+          // Callback with base64 data
+          return reader.result;
+        };
+      })
+      .catch((error) => console.error("Error:", error));
+  }
+  const verifyImage = (image) => {
+    setLoading(true);
+
+    let data = {
+      img1_path: capturedImage,
+      img2_path: image,
+      model_name: "Facenet",
+      detector_backend: "mtcnn",
+      distance_metric: "euclidean",
+    };
+
+    console.log(data);
+    axios
+      .post(verifyURL, data)
+      .then((res) => {
+        console.log(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
   const getName = (filePath) => {
     const nameRegex = /\/app\/data\/([a-zA-Z]+)-([a-zA-Z]+)-\d+\.[a-zA-Z]+/;
     const match = filePath.match(nameRegex);
@@ -19,7 +58,30 @@ const TakePicture = () => {
       const lastName = match[2];
       console.log("First Name:", firstName);
       console.log("Last Name:", lastName);
-      return firstName + " " + lastName;
+
+      axios
+        .get(linkedinURL, {
+          params: {
+            first_name: firstName,
+            last_name: lastName,
+          },
+        })
+        .then((response) => {
+          setLoading(50);
+          console.log(JSON.stringify(response.data));
+
+          response.data.map((profile) => {
+            let img64 = imageToBase64(profile.large_picture_url);
+            console.log(profile.large_picture_url);
+
+            verifyImage(img64);
+          });
+          setLoading(100);
+        })
+        .catch((error) => {
+          setLoading(0);
+          console.log(error);
+        });
     } else {
       console.log("No match found.");
     }
@@ -27,6 +89,7 @@ const TakePicture = () => {
 
   const sendPictureToAWS = (image) => {
     let data = {
+      judge: false,
       img: image,
       model_name: "VGG-Face",
       distance_metric: "cosine",
@@ -42,8 +105,7 @@ const TakePicture = () => {
       .then((response) => {
         setLoading(50);
         console.log(JSON.stringify(response.data));
-        console.log(getName(JSON.stringify(response.data.data[0][0].identity)));
-
+        getName(JSON.stringify(response.data.data[0][0].identity));
         setLoading(100);
       })
       .catch((error) => {

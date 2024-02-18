@@ -6,12 +6,13 @@ import aws from "../assets/aws.png";
 import python from "../assets/python.png";
 import tog from "../assets/tog.png";
 import react from "../assets/react.png";
-
+import intel from "../assets/intel.png";
 const RootContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
+  minHeight: "inherit",
 });
 
 const imageStyle = {
@@ -25,16 +26,6 @@ const LandingPage = () => {
   return (
     <RootContainer>
       <section className="banner">
-        <h6
-          className="fade-in"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "left",
-          }}
-        >
-          Presenting
-        </h6>
         <h1 className="fade-in">incognito</h1>
         <h4
           className="fade-in"
@@ -56,7 +47,6 @@ const LandingPage = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-
               padding: 10,
               borderRadius: "15px",
               marginTop: 50,
@@ -78,7 +68,11 @@ const LandingPage = () => {
             <div>
               {" "}
               <Typography
-                sx={{ fontSize: "15px", fontFamily: "Raleway, sans-serif" }}
+                sx={{
+                  fontSize: "15px",
+                  fontFamily: "Raleway, sans-serif",
+                  textAlign: "center",
+                }}
               >
                 Powered by the latest AI tech, our aim is to raise awareness
                 about how to preserve your privacy. Try out our demo to get a
@@ -96,6 +90,7 @@ const LandingPage = () => {
             padding: 10,
             borderRadius: 15,
             marginTop: 50,
+            marginBottom: 10,
             background: "rgba(255, 255, 255, 0.1)",
           }}
           className="fade-in"
@@ -103,8 +98,14 @@ const LandingPage = () => {
           <img src={fetch} alt="Fetch" style={imageStyle} />
           <img src={aws} alt="AWS" style={imageStyle} />
           <img src={python} alt="Python" style={imageStyle} />
-          <img src={tog} alt="Tog" style={imageStyle} />
+          <img
+            src={tog}
+            alt="Tog"
+            height={60}
+            style={{ borderRadius: "10px" }}
+          />
           <img src={react} alt="React" style={imageStyle} />
+          <img src={intel} alt="Intel" style={imageStyle} />
         </div>
       </div>
     </RootContainer>

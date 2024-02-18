@@ -2,16 +2,15 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Header from "./Components/Header";
 import LandingPage from "./Pages/LandingPage";
-import bg from "./assets/bg.png";
-import { useState } from "react";
+import bg2 from "./assets/bg2.jpg";
 
 function App() {
   const containerStyle = {
     backgroundColor: "#000",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    backgroundImage: `url(${bg})`,
-    height: "100vh",
+    backgroundImage: `url(${bg2})`,
+    height: "100%",
   };
 
   return (
